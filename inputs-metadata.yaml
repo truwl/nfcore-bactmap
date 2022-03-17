@@ -1,0 +1,292 @@
+parameter_meta:
+  bactmap.samplesheet:
+    description: Path to a sample sheet describing paths to input fastq files
+    group: input_output_options
+    help: ''
+    hidden: false
+  bactmap.outdir:
+    description: The output directory where the results will be saved.
+    group: input_output_options
+    help: ''
+    hidden: false
+  bactmap.email:
+    description: Email address for completion summary.
+    group: input_output_options
+    help: Set this parameter to your e-mail address to get a summary e-mail with details
+      of the run sent to you when the workflow exits. If set in your user config file
+      (`~/.nextflow/config`) then you don't need to specify this on the command line
+      for every run.
+    hidden: false
+  bactmap.reference:
+    description: Path to a fasta file of the reference sequence
+    group: compulsory_parameters
+    help: ''
+    hidden: false
+  bactmap.trim:
+    description: Trim reads
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.save_trimmed_fail:
+    description: Saved failed read files after trimminng
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.adapter_file:
+    description: path to file containing adapters in fasta format
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.subsampling_off:
+    description: Turn off subsampling
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.subsampling_depth_cutoff:
+    description: Desired coverage depth when subsampling
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.genome_size:
+    description: Specify genome size for subsampling rather than estimation using
+      mash sketch
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.remove_recombination:
+    description: Remove recombination using gubbins
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.non_GATC_threshold:
+    description: Maximum non GATC bases (i.e - and N) to allow in pseudogenome sequences
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.rapidnj:
+    description: Build a tree using the RapidNJ neighbour-joining algorithm
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.fasttree:
+    description: Build a tree using the FastTree approximate ML algorithm
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.iqtree:
+    description: Build a tree using the IQ-TREE ML algorithm
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.raxmlng:
+    description: Build a tree using the RAxML-NG ML algorithm
+    group: optional_pipeline_steps
+    help: ''
+    hidden: false
+  bactmap.help:
+    description: Display help text.
+    group: generic_options
+    help: ''
+    hidden: true
+  bactmap.publish_dir_mode:
+    description: Method used to save pipeline results to output directory.
+    group: generic_options
+    help: The Nextflow `publishDir` option specifies which intermediate files should
+      be saved to the output directory. This option tells the pipeline what method
+      should be used to move these files. See [Nextflow docs](https://www.nextflow.io/docs/latest/process.html#publishdir)
+      for details.
+    hidden: true
+  bactmap.email_on_fail:
+    description: Email address for completion summary, only when pipeline fails.
+    group: generic_options
+    help: This works exactly as with `--email`, except emails are only sent if the
+      workflow is not successful.
+    hidden: true
+  bactmap.plaintext_email:
+    description: Send plain-text email instead of HTML.
+    group: generic_options
+    help: Set to receive plain-text e-mails instead of HTML formatted.
+    hidden: true
+  bactmap.monochrome_logs:
+    description: Do not use coloured log outputs.
+    group: generic_options
+    help: Set to disable colourful command line output and live life in monochrome.
+    hidden: true
+  bactmap.tracedir:
+    description: Directory to keep pipeline Nextflow logs and reports.
+    group: generic_options
+    help: ''
+    hidden: true
+  bactmap.singularity_pull_docker_container:
+    description: Instead of directly downloading Singularity images for use with Singularity,
+      force the workflow to pull and convert Docker containers instead.
+    group: generic_options
+    help: ''
+    hidden: true
+  bactmap.max_multiqc_email_size:
+    description: 'NOT USED: File size limit when attaching MultiQC reports to summary
+      emails.'
+    group: generic_options
+    help: ''
+    hidden: true
+  bactmap.skip_multiqc:
+    description: 'NOT USED: Skip MultiQC'
+    group: generic_options
+    help: ''
+    hidden: true
+  bactmap.multiqc_config:
+    description: Custom config file to supply to MultiQC.
+    group: generic_options
+    help: ''
+    hidden: true
+  bactmap.multiqc_title:
+    description: Custom title for the MultiQC report.
+    group: generic_options
+    help: ''
+    hidden: true
+  bactmap.enable_conda:
+    description: enable conda rather than use containers
+    group: generic_options
+    help: ''
+    hidden: false
+  bactmap.validate_params:
+    description: Boolean whether to validate parameters against the schema at runtime
+    group: generic_options
+    help: ''
+    hidden: false
+  bactmap.show_hidden_params:
+    description: Show all params when using `--help`
+    group: generic_options
+    help: By default, parameters set as _hidden_ in the schema are not shown on the
+      command line when a user runs with `--help`. Specifying this option will tell
+      the pipeline to show all parameters.
+    hidden: false
+  bactmap.max_cpus:
+    description: Maximum number of CPUs that can be requested    for any single job.
+    group: max_job_request_options
+    help: Use to set an upper-limit for the CPU requirement for each process. Should
+      be an integer e.g. `--max_cpus 1`
+    hidden: true
+  bactmap.max_memory:
+    description: Maximum amount of memory that can be requested for any single job.
+    group: max_job_request_options
+    help: Use to set an upper-limit for the memory requirement for each process. Should
+      be a string in the format integer-unit e.g. `--max_memory '8.GB'`
+    hidden: true
+  bactmap.max_time:
+    description: Maximum amount of time that can be requested for any single job.
+    group: max_job_request_options
+    help: Use to set an upper-limit for the time requirement for each process. Should
+      be a string in the format integer-unit e.g. `--max_time '2.h'`
+    hidden: true
+  bactmap.custom_config_version:
+    description: Git commit id for Institutional configs.
+    group: institutional_config_options
+    help: 'Provide git commit id for custom Institutional configs hosted at `nf-core/configs`.
+      This was implemented for reproducibility purposes. Default: `master`.
+
+
+      ```bash
+
+      ## Download and use config file with following git commit id
+
+      --custom_config_version d52db660777c4bf36546ddb188ec530c3ada1b96
+
+      ```'
+    hidden: true
+  bactmap.custom_config_base:
+    description: Base directory for Institutional configs.
+    group: institutional_config_options
+    help: 'If you''re running offline, nextflow will not be able to fetch the institutional
+      config files from the internet. If you don''t need them, then this is not a
+      problem. If you do need them, you should download the files from the repo and
+      tell nextflow where to find them with the `custom_config_base` option. For example:
+
+
+      ```bash
+
+      ## Download and unzip the config files
+
+      cd /path/to/my/configs
+
+      wget https://github.com/nf-core/configs/archive/master.zip
+
+      unzip master.zip
+
+
+      ## Run the pipeline
+
+      cd /path/to/my/data
+
+      nextflow run /path/to/pipeline/ --custom_config_base /path/to/my/configs/configs-master/
+
+      ```
+
+
+      > Note that the nf-core/tools helper package has a `download` command to download
+      all required pipeline files + singularity containers + institutional configs
+      in one go for you, to make this process easier.'
+    hidden: true
+  bactmap.hostnames:
+    description: Institutional configs hostname.
+    group: institutional_config_options
+    help: ''
+    hidden: true
+  bactmap.config_profile_description:
+    description: Institutional config description.
+    group: institutional_config_options
+    help: ''
+    hidden: true
+  bactmap.config_profile_contact:
+    description: Institutional config contact information.
+    group: institutional_config_options
+    help: ''
+    hidden: true
+  bactmap.config_profile_url:
+    description: Institutional config URL link.
+    group: institutional_config_options
+    help: ''
+    hidden: true
+parameter_group:
+  input_output_options:
+    description: Define where the pipeline should find input data and save output
+      data.
+    help: null
+    title: Input/output options
+  compulsory_parameters:
+    description: ''
+    help: null
+    title: Compulsory parameters
+  optional_pipeline_steps:
+    description: ''
+    help: null
+    title: Optional pipeline steps
+  generic_options:
+    description: Less common options for the pipeline, typically set in a config file.
+    help: 'These options are common to all nf-core pipelines and allow you to customise
+      some of the core preferences for how the pipeline runs.
+
+
+      Typically these options would be set in a Nextflow config file loaded for all
+      pipeline runs, such as `~/.nextflow/config`.'
+    title: Generic options
+  max_job_request_options:
+    description: Set the top limit for requested resources for any single job.
+    help: 'If you are running on a smaller system, a pipeline step requesting more
+      resources than are available may cause the Nextflow to stop the run with an
+      error. These options allow you to cap the maximum resources requested by any
+      single job so that the pipeline will run on your system.
+
+
+      Note that you can not _increase_ the resources requested by any job using these
+      options. For that you will need your own configuration file. See [the nf-core
+      website](https://nf-co.re/usage/configuration) for details.'
+    title: Max job request options
+  institutional_config_options:
+    description: Parameters used to describe centralised config profiles. These should
+      not be edited.
+    help: The centralised nf-core configuration profiles use a handful of pipeline
+      parameters to describe themselves. This information is then printed to the Nextflow
+      log when you run a pipeline. You should not need to change these values when
+      you run a pipeline.
+    title: Institutional config options
